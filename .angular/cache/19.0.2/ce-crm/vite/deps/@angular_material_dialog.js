@@ -13,6 +13,7 @@ import {
   PortalModule,
   TemplatePortal
 } from "./chunk-X3DTXUZP.js";
+import "./chunk-CC7R7K6S.js";
 import {
   animate,
   animateChild,
@@ -23,7 +24,6 @@ import {
   transition,
   trigger
 } from "./chunk-DS6ZQ4CQ.js";
-import "./chunk-CC7R7K6S.js";
 import {
   MatCommonModule
 } from "./chunk-MGQRKLV3.js";

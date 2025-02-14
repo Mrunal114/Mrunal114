@@ -6,8 +6,7 @@ import {
   OverlayContainer,
   OverlayModule,
   OverlayRef
-} from "./chunk-VZIGYYRU.js";
-import "./chunk-Z3G6DGA5.js";
+} from "./chunk-BVQK6GDG.js";
 import {
   BasePortalOutlet,
   CdkPortalOutlet,
@@ -25,6 +24,7 @@ import {
   transition,
   trigger
 } from "./chunk-J5S64FB6.js";
+import "./chunk-Z3G6DGA5.js";
 import {
   MatCommonModule
 } from "./chunk-TJLS6CNU.js";
