@@ -1,0 +1,42 @@
+<h2 mat-dialog-title class="dialog-title">
+  {{ data.title }}
+</h2>
+
+<mat-dialog-content class="dialog-content">
+  <p>{{ data.content }}</p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div *ngFor="let field of data.formFields" class="mt-4">
+      <!-- Input Field -->
+      <mat-form-field
+        *ngIf="field.type === 'text'"
+        appearance="outline"
+        class="w-full"
+      >
+        <mat-label>{{ field.label }}</mat-label>
+        <input matInput [formControlName]="field.name" />
+      </mat-form-field>
+
+      <!-- Dropdown Field -->
+      <mat-form-field
+        *ngIf="field.type === 'dropdown'"
+        appearance="outline"
+        class="w-full"
+      >
+        <mat-label>{{ field.label }}</mat-label>
+        <mat-select [formControlName]="field.name">
+          <mat-option
+            *ngFor="let option of field.options"
+            [value]="option.value"
+          >
+            {{ option.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="dialog-actions">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+</mat-dialog-actions>

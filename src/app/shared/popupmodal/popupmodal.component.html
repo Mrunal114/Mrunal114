@@ -1,0 +1,114 @@
+<div
+  *ngIf="isModalVisible"
+  class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-start z-50"
+  (click)="closeModal()"
+  aria-hidden="true"
+>
+  <div
+    class="bg-white rounded shadow-lg w-full sm:w-1/2 lg:w-1/3 p-6 mt-10 relative transform transition-transform ease-out duration-300"
+    (click)="stopPropagation($event)"
+    [ngClass]="
+      isModalVisible
+        ? 'translate-y-0 opacity-100'
+        : '-translate-y-full opacity-0'
+    "
+    role="dialog"
+    aria-modal="true"
+    [class]="divstyle"
+  >
+    <div
+      class="bg-blue-500 rounded-t flex justify-between items-center mb-4 p-4"
+    >
+      <h2 id="modal-title" class="text-xl font-medium text-white">
+        {{ title }}
+      </h2>
+      <button
+        class="text-white text-2xl font-semibold"
+        (click)="closeModal()"
+        aria-label="Close modal"
+      >
+        &times;
+      </button>
+    </div>
+    <div [class]="customclasses">
+      <ng-container *ngFor="let field of formFields">
+        <ng-container *ngIf="field.type === 'inputfield'">
+          <app-inputfield
+            [label]="field.label"
+            [placeholder]="field.placeholder"
+            [inputfieldstyle]="inputfieldstyle"
+            [value]="field.value"
+            (valueChange)="updateFieldValue(field, $event)"
+          ></app-inputfield>
+        </ng-container>
+ 
+        <ng-container *ngIf="field.type === 'dd'">
+          <app-dd
+          
+            [label]="field.label"
+            [ddstyle]="ddstyle"
+            [options]="field.options"
+            [(value)]="field.value"
+            (valueChange)="updateFieldValue(field, $event)"
+          ></app-dd>
+          <!-- max-w-xs -->
+        </ng-container>
+
+        <ng-container *ngIf="field.type === 'rbtn'">
+          <app-radio-button
+            [label]="field.label"
+            [options]="field.options"
+          ></app-radio-button>
+        </ng-container>
+
+        <ng-container *ngIf="field.type === 'datepicker'">
+          <app-datepicker
+            [label]="field.label"
+            [datepickerstyle]="datepickerstyle"
+          ></app-datepicker>
+        </ng-container>
+      </ng-container>
+      <app-button [class]="divbtnstyle" (click)="onSubmit()">Submit</app-button>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="isSuccessMessageVisible"
+  class="fixed top-0 left-0 w-full flex justify-center z-50 p-4"
+  (click)="closeSuccessMessage()"
+>
+  <div class="bg-white rounded shadow-lg w-full sm:w-1/2 lg:w-1/3" (click)="stopPropagation($event)" >
+    <!-- Header -->
+    <div class="bg-green-500 text-white rounded-t px-4 py-2 flex justify-between items-center">
+      <h3 class="font-medium text-lg">Message</h3>
+      <button
+        class="text-white text-xl font-semibold"
+        (click)="closeSuccessMessage()"
+        aria-label="Close success message"
+      >
+        &times;
+      </button>
+    </div>
+
+  <!--Sucessmessage modal-->
+    <!-- Body -->
+    <div class="p-4 flex items-center space-x-4">
+      <div class="text-green-500 text-2xl">
+      
+      </div>
+      <mat-icon class="text-green-500 text-xl">check_circle</mat-icon>
+      <p class="text-sm text-gray-800">{{ successMessage }}</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="p-4 text-right">
+      <app-button
+        [variant]="'secondary'"
+        (click)="closeSuccessMessage()"
+      >
+        Ok
+      </app-button>
+    </div>
+  </div>
+</div>

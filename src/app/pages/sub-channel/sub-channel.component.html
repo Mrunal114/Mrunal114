@@ -1,0 +1,52 @@
+<div class="flex">
+    
+    <div class="flex-1 bg-gray-100 min-h-screen">
+        
+        <div class="p-6">
+            
+            <div class="flex justify-between">
+                <h1 class="text-2xl font-semibold mb-4">Sub Channel Management</h1>
+                <app-button [variant]="'primary'" (click)="openPopup()">Add Sub Channel</app-button>
+            </div>
+
+           
+            <div class="bg-white shadow rounded p-4 mb-6">
+                <div class="flex items-center mb-4">
+                    <mat-icon class="text-blue-500 mr-2">filter_alt</mat-icon>
+                    <h2 class="text-lg font-medium">Selection Filter</h2>
+                  </div>
+                <div class="flex items-center gap-4">
+                 <app-inputfield label="Sub Channel" placeholder="Enter Sub Channel"></app-inputfield>
+                 <app-inputfield label="Main Channel" placeholder="Enter Main Channel"></app-inputfield>
+                    <app-dd label="Status"  [options]="statusOptions"
+                    [(value)]="selectedStatus"></app-dd>
+                    <app-button [variant]="'primary'" class="mt-7">Search</app-button>
+                    <app-button [variant]="'danger'" class="mt-7">Clear</app-button>
+                </div>
+            </div>
+
+           
+            <div class="bg-white shadow rounded p-4">
+                <div class="flex items-center mb-4">
+                    <mat-icon class="text-blue-500 mr-2">view_list</mat-icon>
+                    <h2 class="text-lg font-medium">Sub Channel List</h2>
+                </div>
+                <app-table></app-table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-popupmodal #popupModal
+[formFields]="formFields"
+ title="Sub Channel Management" 
+ customclasses="flex flex-col gap-2"
+ label="Sub Channel" 
+ ddstyle="w-full"
+ divbtnstyle="flex justify-center items-center mt-5 " 
+ inputfieldstyle="mt-2"
+ [successMessage]="'Sub Channel added successfully!'"></app-popupmodal>
+
+
+

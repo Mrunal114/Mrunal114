@@ -1,0 +1,15 @@
+<li class="group p-2 rounded-md border cursor-pointer relative hover:bg-gray-100">
+    {{ title }}
+    <!-- Submenu -->
+    <ul
+      class=" absolute left-0 top-full hidden group-hover:block bg-white shadow-lg rounded-md p-3 w-48 z-50 transition-all duration-300 ease-in-out"
+    >
+      <li
+        *ngFor="let item of items"
+        class="p-2 rounded-md cursor-pointer hover:text-blue-500 hover:bg-gray-100 transition" 
+      >
+        {{ item }}
+      </li>
+    </ul>
+  </li>
+  

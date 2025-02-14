@@ -1,0 +1,61 @@
+<div class="flex">
+  <!-- Sidebar -->
+  <!-- <app-sidebar></app-sidebar> -->
+
+  <!-- Main Content -->
+  <div class="flex-1 bg-gray-100 min-h-screen mb-10">
+    <!-- <app-header></app-header> -->
+
+    <!-- Statistics Section -->
+    <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <app-carddash
+        title="Revenue"
+        subtitle="Weekly"
+        value="$6547"
+        [color]="'yellow'"
+      ></app-carddash>
+      <app-carddash
+        title="Current Visits"
+        subtitle="+25% Last Week"
+        value="5247"
+        [color]="'green'"
+      ></app-carddash>
+      <app-carddash
+        title="Finished Tasks"
+        subtitle="+15% Last Week"
+        value="25%"
+        [color]="'red'"
+      ></app-carddash>
+    </div>
+
+    <!-- Search Filters -->
+    <div class="flex space-x-7 px-6">
+      <app-dd label="Opp Type"></app-dd>
+      <app-datepicker label="From Date"></app-datepicker>
+      <app-datepicker label="To Date"></app-datepicker>
+      <app-button class="mt-6 text-white">Search</app-button>
+    </div>
+
+    <!-- Opportunity Analytics Cards -->
+    <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white shadow rounded p-4">
+        <h3 class="font-bold text-lg">Opportunity Analytics by Source</h3>
+        <div class="mt-4 h-32 bg-gray-200 flex items-center justify-center">
+          <!-- Placeholder for Chart or Data -->
+          Count: 0
+        </div>
+      </div>
+      <div class="bg-white shadow rounded p-4">
+        <h3 class="font-bold text-lg">Opportunity Analytics by Sub Source</h3>
+        <div class="mt-4 h-32 bg-gray-200 flex items-center justify-center">
+          <!-- Placeholder for Chart or Data -->
+          Count: 0
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Section -->
+     
+    <app-table></app-table>
+  </div>
+</div>

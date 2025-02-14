@@ -1,0 +1,15 @@
+<div class="form-check" class="flex gap-8 mt-3 mb-3" >
+    <label class="font-medium">{{ label }}</label>
+    <ul class="flex gap-4">
+        <li *ngFor="let option of options; let i = index">
+            <input 
+                type="radio"
+                class="form-check-input" 
+                [id]="'radio' + i" 
+                name="optradio" 
+                [value]="option.value"
+                >
+            <label class="form-check-label" [for]="'radio' + i">{{ option.rlabel }}</label>
+        </li>
+    </ul>
+</div>

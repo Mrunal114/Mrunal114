@@ -1,0 +1,19 @@
+<div class="card" class="selection-filter-container" class="bg-blue-100 p-1 mt-3 border-2 border-solid border-blue-300 w-full m-auto rounded-[10px] mt-1% shadow-gray-400 shadow-[0px_4px_6px_rgba(0,0,0,0.1)] ">
+    
+             <div (click)="toggleDropdown($event)" class="flex justify-between p-2">
+                <span  class="truncate" class="text-xl" >{{ title }}</span> 
+                <span class="transform transition-transform" [class.rotate-180]="cardOpen">▼</span>
+            </div>
+        
+    <!-- <div class="row">
+        <div class="col-md-6 col-sm-6 col-6 " class="bg-amber-400 border-2 border-solid border-amber-400 text-xl text-black rounded-sm px-[1.8%] pt-1 pb-2">
+            <div >{{ cardSetting.title }}</div>
+                
+        </div>
+    </div> -->
+    <div class="card-body" class="border-2 border-blue-300 rounded-[10px] p-3 bg-white"  *ngIf="cardOpen" >
+        <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+    </div>
+   
+  </div>
+  

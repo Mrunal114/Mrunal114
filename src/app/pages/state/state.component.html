@@ -1,0 +1,45 @@
+<div class="flex">
+
+  <div class="flex-1 bg-gray-100 min-h-screen">
+
+      <div class="p-6">
+          <!-- Page Title -->
+          <div class="flex justify-between">
+              <h1 class="text-2xl font-semibold mb-4">State Management</h1>
+              <app-button [variant]="'primary'" class=" text-white"(click)="openPopup()">Add State</app-button>
+          </div>
+
+          <!-- Filter Section -->
+          <div class="bg-white shadow rounded p-4 mb-6">
+            <div class="flex items-center mb-4">
+                <mat-icon class="text-blue-500 mr-2">filter_alt</mat-icon>
+                <h2 class="text-lg font-medium">Selection Filter</h2>
+              </div>
+              <div class="grid grid-cols-3 gap-4">
+                <app-dd label="Country" ddstyle="w-full"></app-dd>
+                 <app-inputfield label="State" placeholder="Enter state"></app-inputfield>
+                  <app-dd label="Status"></app-dd>
+                
+              </div>
+              <div class="flex gap-4 justify-start md:justify-end items-center">
+              <app-button [variant]="'primary'" class="mt-7 text-white">Search</app-button>
+              <app-button [variant]="'danger'" class="mt-7">Clear</app-button>
+            </div>
+          </div>
+
+          <!-- Table Section -->
+          <div class="bg-white shadow rounded p-4">
+            <div class="flex items-center mb-4">
+                <mat-icon class="text-blue-500 mr-2">view_list</mat-icon>
+                <h2 class="text-lg font-medium">State List</h2>
+              </div>
+              <app-table></app-table>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<app-popupmodal #popupModal [formFields]="formFields" customclasses="flex flex-col gap-2" divbtnstyle="flex justify-center items-center mt-5 " inputfieldstyle="" ddstyle="w-full"
+[successMessage]="'State added successfully!'"></app-popupmodal>
+

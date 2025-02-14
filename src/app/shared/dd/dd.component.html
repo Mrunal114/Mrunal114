@@ -1,0 +1,31 @@
+<div
+  class="relative w-full"
+  (document:click)="closeDropdown($event)"
+  [class]="customclasses"
+>
+  <label class="font-medium">{{ label }}</label>
+  <button
+    class="w-64 px-4 py-2 mt-2 bg-white text-gray-700 rounded-md flex justify-between items-center focus:outline-none border border-gray-300"
+    (click)="toggleDropdown($event)"
+    [class]="ddstyle"
+  >
+    {{ value || "Select" }}
+    <span
+      class="transform transition-transform"
+      [class.rotate-180]="dropdownOpen"
+      >▼</span
+    >
+  </button>
+  <ul
+    *ngIf="dropdownOpen"
+    class="absolute w-full mt-1 bg-white border border-gray-300 rounded-md shadow-md z-10 max-h-40 overflow-auto"
+  >
+    <li
+      *ngFor="let option of options"
+      (click)="selectOption(option.value)"
+      class="px-4 py-2 hover:bg-blue-500 cursor-pointer"
+    >
+      {{ option.viewValue }}
+    </li>
+  </ul>
+</div>

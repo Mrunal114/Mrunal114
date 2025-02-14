@@ -1,0 +1,113 @@
+<div class="flex">
+  <div class="flex-1 bg-gray-100 min-h-screen">
+    <div class="p-6">
+      <!-- Page Title -->
+      <div class="flex justify-between">
+        <h1 class="text-2xl font-semibold mb-4">Contact Management</h1>
+        <app-button [variant]="'primary'" (click)="openNewPage()"
+          >Go to List</app-button
+        >
+      </div>
+      <div class="p-6">
+        <app-cardcomponent
+          title="Contact Information"
+          [contentTemplate]="listTemplate"
+        ></app-cardcomponent>
+        <app-cardcomponent
+          title="Personal Info"
+          [contentTemplate]="listTemplate1"
+        ></app-cardcomponent>
+      </div>
+    </div>
+  </div>
+  <ng-template #listTemplate>
+    <div class="flex flex-row gap-4">
+      <div class=" w-[25%] block items-center p-2">
+        <app-inputfield
+          label="Customer Name"
+          placeholder="Enter Customer Name"
+          inputfieldstyle="w-[97%] "
+        ></app-inputfield>
+        <app-inputfield
+          label="Address"
+          placeholder="Enter Contact Name"
+          inputfieldstyle="mt-3 w-[97%] "
+        ></app-inputfield>
+        <app-dd label="District" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+        <app-inputfield
+          label="Mobile No."
+          placeholder="Enter Mobile No."
+          inputfieldstyle="mt-3 w-[97%] "
+        ></app-inputfield>
+      </div>
+      <div class=" w-[25%] block items-center p-2">
+        <app-inputfield
+          label="Contact Name"
+          placeholder="Enter Contact Name"
+          inputfieldstyle="w-[97%] "
+        ></app-inputfield>
+        <app-dd label="Region" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+        <app-inputfield label="City" placeholder="Enter City" inputfieldstyle="mt-3 w-[97%] "></app-inputfield>
+        <app-inputfield
+          label="Email"
+          placeholder="Enter Email"
+          inputfieldstyle="mt-3 w-[97%] "
+        ></app-inputfield>
+      </div>
+      <div class=" w-[25%] block items-center p-2">
+        <app-dd label="Designation" ddstyle="w-[95%]" ></app-dd>
+        <app-dd label="Country" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+        <app-inputfield
+          label="Postal Code"
+          placeholder="Enter Postal Code"
+          inputfieldstyle="mt-3 w-[97%] "
+        ></app-inputfield>
+        <app-dd label="Status" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+      </div>
+      <div class=" w-[25%] block items-center p-2">
+        <app-dd label="Department" ddstyle="w-[95%]" ></app-dd>
+        <app-dd label="State" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+        <app-inputfield
+          label="Phone No."
+          placeholder="Enter Phone No."
+          inputfieldstyle="mt-3 w-[97%] "
+        ></app-inputfield>
+      </div>
+    </div>
+
+    <!-- <div class="flex justify-end p-5">
+      <app-button [variant]="'primary'">Submit</app-button>
+    </div> -->
+  </ng-template>
+  <ng-template #listTemplate1>
+    <div class="flex gap-4">
+      <div class=" w-[25%] block items-center p-2">
+        <app-inputfield
+          label="Assistant Name"
+          placeholder="Enter Assistant Name"
+          inputfieldstyle="w-[97%] "
+        ></app-inputfield>
+        <app-dd label="Marital Status" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+        <app-dd label="Children" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+        <app-dd label="Meal Preference" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+      </div>
+      <div class=" w-[25%] block items-center p-2">
+        <app-inputfield label="Assistant Phone No." inputfieldstyle="w-[97%] "></app-inputfield>
+        <app-inputfield label="Spouse" inputfieldstyle="mt-3 w-[97%] "></app-inputfield>
+        <app-dd label="Language Preference" [options]="statusOptions" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+        <app-inputfield label="Special Comments" inputfieldstyle="mt-3 w-[97%] "></app-inputfield>
+      </div>
+      <div class=" w-[25%] block items-center p-2">
+        <app-inputfield label="Home Phone" inputfieldstyle="w-[97%] "></app-inputfield>
+        <app-datepicker label="Anniversary Date" datepickerstyle="mt-3 w-[95%]"></app-datepicker>
+        <app-dd label="Smoking Preference" [options]="statusOptions" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+      </div>
+      <div class=" w-[25%] block items-center p-2">
+        <app-datepicker label="Birth Date" datepickerstyle="w-[95%]"></app-datepicker>
+        <app-datepicker label="Spouse Date" datepickerstyle="mt-3 w-[95%]"></app-datepicker>
+        <app-dd label="Drinking Preference" [options]="statusOptions" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+      </div>
+    </div>
+    <div class="flex justify-end p-5"><app-button [variant]="'primary'" >Submit</app-button></div>
+  </ng-template>
+</div>

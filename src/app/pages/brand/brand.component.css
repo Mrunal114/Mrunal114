@@ -1,0 +1,90 @@
+/* #ng-isolate-scope{
+    border: 7px solid #2e80d1;
+    border-radius: 5px;
+    width: 100%;
+    justify-content: end;
+} */
+/* #headwe{
+    height: 6%;
+    width: 86%;
+    margin: auto;
+    margin-top: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+} */
+/* #headwe h4{
+    font-size: x-large;
+} */
+/* .selection-filter-container{
+    background-color:white;
+    border: 2px solid #2e80d1;
+    width: 90%;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 1%;
+} */
+/* .selection-filter-container h2{
+    background-color:#2e80d1;
+    border: 2px solid #2e80d1 ;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 17px;
+    padding: 0.8% 0.8% 0.8% 2%;
+    border-radius: 2px;
+    color: white;
+} */
+
+/* #validVal{
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 30% 2% 3%;
+} */
+.mat-mdc-table {
+    width: 425%;
+}
+.mat-mdc-card-content {
+    display: flex;
+    padding: 3% 29% 3% 3%;
+}
+button {
+    height: 11vh;
+    width: 87%;
+    margin-left: 10px;
+    background-color: rgb(127, 127, 241);
+}
+.mat-mdc-card-actions {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    min-height: 52px;
+    padding: 8px;
+}
+/* #btnSearch{
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 18px;
+    background-color: #9e8ffd;
+    color: white; 
+}
+ #btnSearch:hover{
+    background-color: #cdc5fb;
+    color: black;
+} 
+
+#btnClear{
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 18px;
+    background-color: #f30b07;
+    color: white; 
+    margin-left: 5%;
+}
+ #btnClear:hover{
+    background-color: #fa2020;
+    color: black;
+}  */
+
+
+

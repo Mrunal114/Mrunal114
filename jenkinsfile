@@ -1,0 +1,67 @@
+pipeline {
+    agent any
+    options {
+        timeout(time: 1, unit: 'HOURS') 
+    }
+    environment {     
+        CI = false   
+        MY_WORKSPACE = "C:/Users/finecopia/AppData/Local/Jenkins/.jenkins/workspace/cecrm/"
+        MY_BUILD_WORKSPACE = "C:/Users/finecopia/AppData/Local/Jenkins/.jenkins/workspace/cecrm/dist/"
+        MY_DESTINATION_PATH = "C:/Inetpub/GCPL_EXHIBITION_API/"
+        CUSTOM_ENV="${GIT_BRANCH}"
+    }   
+    stages {
+        stage ('Git Checkout') {
+            steps {
+                git branch: 'develop', credentialsId: '6c70f0fe-b0f2-458f-b9b9-14759cd9ac26', url: 'https://github.com/CopiaGithub/GCPL_Exhibition_API.git'
+            }
+        }
+        stage("Install all  dependencies") {
+            steps {
+               echo "npm install"
+               sh "npm install"              
+            }
+        }
+        stage("Build") {
+            steps {
+               echo "npm build"
+               sh "npm run build"              
+            }
+        }
+        //temp
+        stage('Stop PM2') {
+            steps {
+                script{
+                    echo "Branch Name == ${CUSTOM_ENV}"
+                    if ("${CUSTOM_ENV}" == 'origin/develop'){
+                        echo "Stopping PM2 server"
+                        bat "cd ${MY_DESTINATION_PATH}GCPL_EXH_API && npm run pm2-stop"
+                    } else{
+                    echo "Not on develop branch, skipping deployment steps"
+                    }
+                }
+            }
+        }
+        stage('Deploy'){
+            steps{
+                script{
+                    if ("${CUSTOM_ENV}" == 'origin/develop'){
+                        echo "deploying to go daddy"
+                        echo "WP:${WORKSPACE}"
+                        echo "MY-WP:${MY_WORKSPACE}"
+                        sh "ls -all"
+                        sh "rm -rf ${MY_WORKSPACE}/.git"
+                        sh "cp -r ${MY_WORKSPACE} ${MY_DESTINATION_PATH}"   
+                        echo "go to GCPL Website folder"
+                        echo "generate prisma"
+                        bat "npx prisma generate"
+                        echo "start pm2 server"
+                        bat "cd ${MY_DESTINATION_PATH}GCPL_EXH_API && npm run pm2-start"
+                    } else{
+                        echo "Not on develop branch, skipping deployment steps"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+<div class="flex">
+  <!-- <app-sidebar></app-sidebar> -->
+  <div class="flex-1 bg-gray-100 min-h-screen">
+      <!-- <app-header></app-header> -->
+      <div class="p-6">
+          <!-- Page Title -->
+          <div class="flex justify-between">
+              <h1 class="text-2xl font-semibold mb-4">Industry Sub Type Management</h1>
+              <app-button [variant]="'primary'" (click)="openPopup()">Add Industry Sub Type</app-button>
+          </div>
+
+          <!-- Filter Section -->
+          <div class="bg-white shadow rounded p-4 mb-6">
+            <div class="flex items-center mb-4">
+                <mat-icon class="text-blue-500 mr-2">filter_alt</mat-icon>
+                <h2 class="text-lg font-medium">Selection Filter</h2>
+              </div>
+              <div class="flex items-center gap-4">
+               <app-inputfield label="Industry Sub Type" placeholder="Enter Industry Sub Type"></app-inputfield>
+               <app-dd label="Industry Type" [options]="indtypeOptions"
+               [(value)]="selectedInd"></app-dd>
+                  <app-dd label="Status" [options]="statusOptions"
+                  [(value)]="selectedStatus"></app-dd>
+                  <app-button [variant]="'primary'" class="mt-7">Search</app-button>
+                  <app-button [variant]="'danger'" class="mt-7">Clear</app-button>
+              </div>
+          </div>
+
+          <!-- Table Section -->
+          <div class="bg-white shadow rounded p-4">
+              <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center mb-4">
+                    <mat-icon class="text-blue-500 mr-2">view_list</mat-icon>
+                    <h2 class="text-lg font-medium">Industry Sub Type List</h2>
+                  </div>
+              </div>
+              <app-table></app-table>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<app-popupmodal #popupModal [formFields]="formFields"
+customclasses=" flex flex-col space-y-2 gap-6 p-4   "
+inputfieldstyle="flex-col"
+divstyle="p-6 relative overflow-y-auto max-h-[calc(100vh-100px)] "
+buttonstyle="text-white"
+ddstyle="w-52"
+datepickerstyle="w-52"
+divbtnstyle="flex justify-center items-center mt-5">
+</app-popupmodal>

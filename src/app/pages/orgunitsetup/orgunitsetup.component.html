@@ -1,0 +1,59 @@
+<div class="flex">
+
+  <div class="flex-1 bg-gray-100 min-h-screen">
+ 
+      <div class="p-6">
+          <!-- Page Title -->
+          <div class="flex justify-between">
+              <h1 class="text-2xl font-semibold mb-4">Org Unit</h1>
+              <app-button [variant]="'primary'" class=" text-white"(click)="openPopup()">Add Org Unit</app-button>
+          </div>
+
+          <!-- Filter Section -->
+          <div class="bg-white shadow rounded p-4 mb-6">
+            <div class="flex items-center mb-4">
+                <mat-icon class="text-blue-500 mr-2">filter_alt</mat-icon>
+                <h2 class="text-lg font-medium">Selection Filter</h2>
+              </div>
+            <div class="grid grid-cols-3 sm:grid-cols-3 gap-4 items-end">
+              <app-dd label="Org Name" ddstyle="w-full"></app-dd>
+               <app-inputfield label="Org Unit Code" placeholder="Enter org unit code"></app-inputfield>
+               <app-inputfield label="Org Unit Name" placeholder="Enter org unit Name"></app-inputfield>
+              <div>
+               <app-dd label="Status" class="mt-2" ddstyle="w-full" ></app-dd>
+              </div>
+              <div></div>
+            <div class="flex justify-end items-end gap-4">
+                  
+                  <app-button [variant]="'primary'" class="mt-10 text-white">Search</app-button>
+                  <app-button [variant]="'danger'" class="mt-10">Clear</app-button>
+            </div>
+          </div>
+             
+          </div>
+
+          <!-- Table Section -->
+          <div class="bg-white shadow rounded p-4">
+            <div class="flex items-center mb-4">
+                <mat-icon class="text-blue-500 mr-2">view_list</mat-icon>
+                <h2 class="text-lg font-medium">Org Unit List</h2>
+              </div>
+              <app-table></app-table>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<!-- <app-popupmodal #popupModal title="Org Unit" label="Org Unit" divbtnstyle="flex justify-center items-center mt-5 " inputfieldstyle="mt-5"></app-popupmodal> -->
+
+<app-popupmodal #popupModal   [formFields]="formFeilds"
+customclasses="grid grid-cols-3 gap-6"
+inputfieldstyle="flex flex-col"
+divstyle="p-6 relative overflow-y-auto max-h-[calc(100vh-100px)] w-full sm:w-4/6 lg:w-4/6"
+buttonstyle="text-white"
+divbtnstyle="flex justify-center items-center mt-5"
+[successMessage]="'Org Unit added successfully!'">
+</app-popupmodal>
+
+

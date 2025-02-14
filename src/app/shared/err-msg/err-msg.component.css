@@ -1,0 +1,13 @@
+div{
+    height: 78px;
+    width: 80%;
+    font-size: 28px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-top: 12px;
+    border-radius: 5px;
+    border: 2px red solid;
+    margin: auto;
+    color: red;
+}

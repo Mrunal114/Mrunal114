@@ -1,0 +1,40 @@
+<div class="flex">
+
+    <div class="flex-1 bg-gray-100 min-h-screen">
+   
+        <div class="p-6">
+            <!-- Page Title -->
+            <div class="flex justify-between">
+                <h1 class="text-2xl font-semibold mb-4">User Login</h1>
+                
+            </div>
+
+            <!-- Filter Section -->
+            <div class="bg-white shadow rounded p-4 mb-6">
+                <h2 class="text-lg font-medium mb-4">Selection Filter</h2>
+                <div class="flex items-center gap-4">
+                    <app-inputfield label="User Name" customclasses="w-60" placeholder="Enter Username"></app-inputfield> 
+                    <app-datepicker label="From Date"></app-datepicker>
+                    <app-datepicker label="To Date"></app-datepicker>
+                </div>
+                <div class="flex justify-end items-end gap-2">
+                    <app-button [variant]="'primary'" class="mt-5">Search</app-button>
+                    <app-button [variant]="'danger'"  class="mt-5" >Clear</app-button>
+                    <app-button [variant]="'secondary'" class="mt-5">Excel Download</app-button>
+                </div>
+
+            </div>
+
+            <!-- Table Section -->
+            <div class="bg-white shadow rounded p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-medium">Delegation Matrix List</h2>
+                </div>
+                <app-table></app-table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,62 @@
+
+<div class="flex">
+    
+    <div class="flex-1 bg-gray-100 min-h-screen">
+        
+        <div class="p-6">
+            
+            <div class="flex justify-between">
+                <h1 class="text-2xl font-semibold mb-4">Allocation Matrix</h1>
+                <app-button [variant]="'primary'" (click)="openPopup()">Add New</app-button>
+            </div>
+
+           
+            <div class="bg-white shadow rounded p-4 mb-6">
+                <div class="flex items-center mb-4">
+                    <mat-icon class="text-blue-500 mr-2">filter_alt</mat-icon>
+                    <h2 class="text-lg font-medium">Selection Filter</h2>
+                  </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  gap-4">
+                <app-dd label="Lead Type"  [options]="leadTypeOptions" [(value)]="selectedLeadType" ddstyle="w-full"></app-dd>
+                <app-dd label="Category"  [options]="categoryOptions" [(value)]="selectedCategory" ddstyle="w-full"></app-dd>
+                <app-dd label="Division"  [options]="DivisionOptions" [(value)]="selectedDiv" ddstyle="w-full"></app-dd>
+                <app-inputfield label="Item Code" placeholder="Enter Item Code"></app-inputfield>
+                <app-dd label="Region"  [options]="regionOptions" [(value)]="selectedRegion" ddstyle="w-full"></app-dd>
+                <app-dd label="State"  [options]="stateOptions" [(value)]="selectedState" ddstyle="w-full"></app-dd>
+                <app-dd label="District"  [options]="districtOptions" [(value)]="selectedDistrict" ddstyle="w-full"></app-dd>
+                <app-inputfield label="User Name" placeholder="Enter User Name"></app-inputfield>
+                <app-dd label="Status" [options]="statusOptions"
+                    [(value)]="selectedStatus" ddstyle="w-full"></app-dd>
+                    
+                </div>
+                <div class="flex justify-end gap-2 pr-6 pb-2 ">
+                    <app-button [variant]="'primary'" class="mt-7">Search</app-button>
+                    <app-button [variant]="'danger'" class="mt-7">Clear</app-button>
+                </div>
+            </div>
+
+           
+            <div class="bg-white shadow rounded p-4">
+                <div class="flex items-center mb-4">
+                    <mat-icon class="text-blue-500 mr-2">view_list</mat-icon>
+                    <h2 class="text-lg font-medium">Allocation Matrix List</h2>
+                </div>
+                <app-table></app-table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-popupmodal #popupModal [formFields]="formFields"
+customclasses="grid grid-cols-1 md:grid-cols-2 gap-6 p-4"
+inputfieldstyle="flex-col"
+divstyle="p-6 relative overflow-y-auto max-h-[calc(100vh-100px)] w-full sm:w-2/4 lg:w-2/4  "
+buttonstyle="text-white"
+divbtnstyle="flex justify-center items-center mt-7"
+ddstyle="w-full"
+[successMessage]="'Allowcation Matrix added successfully!'">
+
+</app-popupmodal>
+
+

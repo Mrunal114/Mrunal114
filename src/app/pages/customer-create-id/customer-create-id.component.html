@@ -1,0 +1,111 @@
+<div class="flex">
+  <div class="flex-1 bg-gray-100 min-h-screen">
+    <div class="p-6">
+      <!-- Page Title -->
+      <div class="flex justify-between">
+        <h1 class="text-2xl font-semibold mb-4">Customer Management</h1>
+        <app-button [variant]="'primary'" (click)="openNewPage()"
+          >Go to List</app-button
+        >
+      </div>
+      <div class="p-6 ">
+        <app-cardcomponent
+          title="Customer Information"
+          [contentTemplate]="listTemplate"
+        ></app-cardcomponent>
+      <app-cardcomponent
+          title="Primary Contact Info"
+          [contentTemplate]="listTemplate1"
+        ></app-cardcomponent>
+        <app-cardcomponent
+          title="Org Data"
+          [contentTemplate]="listTemplate2"
+        ></app-cardcomponent>
+      </div>
+    </div>
+  </div>
+ 
+<ng-template #listTemplate>
+    <div class="flex gap-4">
+        <div class=" w-[25%] block items-center p-2">
+            <app-inputfield label="Customer Name" placeholder="Customer Name(min 5 char)" inputfieldstyle=" w-[97%] "></app-inputfield>
+            <app-inputfield label="Phone No" inputfieldstyle="mt-3 w-[97%] "></app-inputfield>
+            <app-dd label="State"  [options]="stateOptions" [(value)]="selectedState" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+            <app-inputfield label="City" inputfieldstyle="mt-3 w-[97%] " ></app-inputfield>  
+        </div>
+        <div class="w-[25%] block items-center p-2 ">
+            <app-inputfield label="Address 1" inputfieldstyle="w-[97%] "></app-inputfield>
+            <app-inputfield label="Mobile No" inputfieldstyle="mt-3 w-[97%] "></app-inputfield>
+            <app-dd label="Status"  [options]="statusOptions"
+            [(value)]="selectedStatus" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+            <app-dd label="District" [options]="districtOptions" [(value)]="selectedDistrict" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+        </div>
+        <div class="w-[25%] block items-center p-2 ">
+            <app-inputfield label="Address 2" inputfieldstyle="w-[97%] "></app-inputfield>
+            <app-dd label="Country"  [options]="countryOptions" [(value)]="selectedCountry" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+            <app-inputfield label="Postal Code" inputfieldstyle="mt-3 w-[97%] " ></app-inputfield>
+            <app-dd label="Is Customer Group ?"  [options]="isCustGpOptions" [(value)]="selectedIsCustGp" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+            
+        </div>
+        <div class="w-[25%] block items-center p-2">
+            <app-inputfield label="Search Term" inputfieldstyle="w-[97%] "></app-inputfield>
+            <app-dd label="Region"  [options]="regionOptions" [(value)]="selectedRegion" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+            <app-inputfield label="Email" inputfieldstyle="mt-3 w-[97%] "></app-inputfield>
+        </div>
+        
+    </div>
+    <div class="w-[55%] mt-2"><app-inputfield label="Comments" ></app-inputfield></div>
+    <div class="flex justify-end p-5"><app-button [variant]="'primary'" >Submit</app-button></div>
+</ng-template>
+<ng-template #listTemplate1>
+    <div class="flex gap-4">
+        <div class=" w-[25%] block items-center p-2">
+            <app-inputfield label="Customer Name" placeholder="Customer Name(min 5 char)" inputfieldstyle="w-[97%] "></app-inputfield>
+            <app-inputfield label="Email Id" inputfieldstyle="mt-3 w-[97%] "></app-inputfield>
+            <app-dd label="District"  [options]="districtOptions" [(value)]="selectedDistrict" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+            <app-inputfield label="PinCode" inputfieldstyle="mt-3 w-[97%] "></app-inputfield>  
+        </div>
+        <div class="w-[25%] block items-center p-2 ">
+            <app-inputfield label="Designation" inputfieldstyle=" w-[97%] "></app-inputfield>
+            <app-dd label="Country"  [options]="countryOptions" [(value)]="selectedCountry" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+            <app-inputfield label="City" inputfieldstyle="mt-3 w-[97%] " ></app-inputfield>
+        </div>
+        <div class="w-[25%] block items-center p-2 ">
+            <app-inputfield label="Phone No" inputfieldstyle=" w-[97%] "></app-inputfield>
+            <app-dd label="Region" [options]="regionOptions" [(value)]="selectedRegion" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+            <app-dd label="Department" [options]="departmentOptions" [(value)]="selectedDepartment" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+            
+        </div>
+        <div class="w-[25%] block items-center p-2">
+            <app-inputfield label="Mobile No" inputfieldstyle=" w-[97%] "></app-inputfield>
+            <app-dd label="State"  [options]="stateOptions" [(value)]="selectedState" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+            <app-inputfield label="Address" inputfieldstyle="mt-3 w-[97%] "></app-inputfield>
+        </div>
+        
+    </div>
+
+</ng-template>
+<ng-template #listTemplate2>
+    <div class="flex gap-4">
+        <div class=" w-[25%] block items-center  p-2">
+            <app-dd label="Division Code"  [options]="DivisionCodeOptions" [(value)]="selectedDivCode" ddstyle="w-[95%]" ></app-dd>
+            <app-dd label="Sales Office"  [options]="SalesOfficeOptions" [(value)]="selectedSalesOffice" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>  
+        </div>
+        <div class="w-[25%] block items-center  p-2 ">
+            <app-dd label="Industrial Segment "  [options]="InSegmentOptions" [(value)]="selectedInSegment" ddstyle="w-[95%]" ></app-dd>
+            <app-dd label="Account Type"  [options]="AccountTypeOptions" [(value)]="selectedAccountType" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+        </div>
+        <div class="w-[25%] block items-center p-2 ">
+            <app-dd label="Industry Division"  [options]="InDivisionOptions" [(value)]="selectedInDivision" ddstyle="w-[95%]" ></app-dd>
+            <app-dd label="Customer Class"  [options]="CustClassOptions" [(value)]="selectedCustClass" ddstyle="w-[95%]" customclasses="mt-3"></app-dd>
+        </div>
+        <div class="w-[25%] block items-center p-2">
+            <app-dd label="Sales Area"  [options]="SalesAreaOptions" [(value)]="selectedSalesArea" ddstyle="w-[95%]" ></app-dd>
+            <app-inputfield label="Customer Division" inputfieldstyle="mt-3 w-[97%] "></app-inputfield>
+        </div>
+        
+    </div>
+    <div class="flex justify-end p-5"><app-button [variant]="'primary'" >Submit</app-button></div>
+
+</ng-template>
+

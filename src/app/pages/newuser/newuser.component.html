@@ -1,0 +1,64 @@
+
+<div class="flex">
+ 
+    <div class="flex-1 bg-gray-100 min-h-screen">
+
+        <div class="p-6">
+            <!-- Page Title -->
+            <div class="flex justify-between">
+                <h1 class="text-2xl font-semibold mb-4">User Master</h1>
+                <app-button [variant]="'primary'" (click)="openPopup()">Add User</app-button>
+            </div>
+
+            <!-- Filter Section -->
+            <div class=" bg-white shadow rounded p-4 mb-6">
+                <div class="flex items-center mb-4">
+                    <mat-icon class="text-blue-500 mr-2">filter_alt</mat-icon>
+                    <h2 class="text-lg font-medium">Selection Filter</h2>
+                  </div>
+                <div class="grid grid-cols-3 md:grid-cols-3 items-center gap-4">
+                    <app-inputfield label="User Name" placeholder="Start typing UserName"></app-inputfield>
+                    <app-inputfield label="Employee Code" placeholder="Search by EmployeeCode"></app-inputfield>
+                    <app-dd label="Manager Name"  [options]="statusOptions"
+                    [(value)]="selectedStatus"></app-dd>
+                </div>
+                <div class="grid grid-cols-3 md:grid-cols-3 gap-4 mt-5 items-center">
+                    <!-- Input Fields -->
+                    <app-inputfield label="Phone No" placeholder="Search By PhoneNo"></app-inputfield>
+                    <app-dd label="Status"  [options]="statusOptions" [(value)]="selectedStatus"></app-dd>
+                
+                    <!-- Buttons Section -->
+                    <div class="flex gap-4 justify-start md:justify-end items-center mt-7">
+                        <app-button [variant]="'primary'">Search</app-button>
+                        <app-button [variant]="'danger'">Clear</app-button>
+                        <app-button [variant]="'secondary'" class="min-w-[160px] truncate">Excel Download</app-button>
+                    </div>
+                </div>         
+            </div>
+
+            <!-- Table Section -->
+            <div class="bg-white shadow rounded p-4">
+                <div class="flex items-center mb-4">
+                    <mat-icon class="text-blue-500 mr-2">view_list</mat-icon>
+                    <h2 class="text-lg font-medium">User Master List</h2>
+                  </div>
+                <app-table></app-table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<app-popupmodal #popupModal 
+  [formFields]="formFields" 
+  customclasses="grid grid-cols-3 gap-4 p-4"
+  inputfieldstyle="flex-col"
+  divstyle="p-6 relative overflow-y-auto max-h-[calc(100vh-100px)] w-full sm:w-4/6 lg:w-4/6" 
+  buttonstyle="text-white"
+  divbtnstyle="flex justify-end items-end mt-5"
+  ddstyle="w-full"
+  [successMessage]="'User added successfully!'">
+</app-popupmodal>
+
+
+

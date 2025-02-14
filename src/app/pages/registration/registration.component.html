@@ -1,0 +1,209 @@
+<mat-horizontal-stepper labelPosition="bottom" [linear]="true">
+  
+  <!-- Step 1: Organization Details -->
+  <mat-step label="Step 1: Organization Details" class="step-1">
+    <div class="form-container border-2 border-gray-500 p-4 rounded-lg">
+    <div class="form-container space-y-7">
+      <!-- <h3>Organization Details</h3> -->
+
+      <!-- Row 1: Organization Name and Organization Type -->
+      <div class="form-row">
+        <div class="form-group font-medium">
+            <app-inputfield label="Organization Name" placeholder="Enter Organization Name"></app-inputfield>
+        </div>
+        
+
+        <div class="form-group font-medium ">
+          <app-dd label="Organization Type" ddstyle="w-full" [options]="OgtypeOptions"
+          [(value)]="selectedOrgtype"></app-dd>
+        </div>
+      </div>
+
+      <!-- Row 2: Industry Type and No. of Employees -->
+      <div class="form-row">
+        <div class="form-group font-medium medium-width">
+          <app-dd label="Industry Type" ddstyle="w-full" [options]="IndOptions"
+          [(value)]="selectedIndType"></app-dd>
+        </div>
+
+        <div class="form-group font-medium medium-width">
+          <app-dd label="No. of Employees" ddstyle="w-full" [options]="empstatusOptions"
+          [(value)]="selectedEmp"></app-dd>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button mat-button matStepperNext>Next</button>
+        
+      </div>
+    </div>
+    </div>
+  </mat-step>
+
+  <!-- Step 2: General Data -->
+  <mat-step label="General Data">
+    <div class="form-container border-2 border-gray-500 p-4 rounded-lg">
+    <div class="form-container space-y-6">
+      <!-- <h3>GENERAL DATA</h3> -->
+
+      <!-- Row 1: CIN, GSTIN, PAN, Aadhaar -->
+      <div class="form-row">
+        <div class="form-group font-medium medium-width medium-input">
+         <app-inputfield label="CIN Number" placeholder="Enter CIN Number"></app-inputfield>
+        </div>
+        <div class="form-group font-medium medium-width medium-input">
+          
+        <app-inputfield label="GSTIN Number" placeholder="Enter GSTIN Number"></app-inputfield>
+        </div>
+        <div class="form-group font-medium medium-width medium-input">
+          <app-inputfield label="PAN Number" placeholder="Enter PAN Number"></app-inputfield>
+        </div>
+        <div class="form-group font-medium medium-width medium-input">
+          <app-inputfield label="Aadhaar Number" placeholder="Enter Aadhaar Number"></app-inputfield>
+        </div>
+      </div>
+
+      <!-- Section: Bill To -->
+      <h4>Bill To</h4>
+      <div class="form-row">
+        <div class="form-group font-medium medium-width">
+          <app-dd label="Country" [options]="countryOptions"
+          [(value)]="selectedcountry" ></app-dd>
+        </div>
+        <div class="form-group font-medium medium-width">
+          <app-dd label="State" [options]="stateOptions"
+          [(value)]="selectedState"></app-dd>
+        </div>
+        <div class="form-group font-medium medium-width">
+        <app-dd label="District" [options]="districtOptions"
+        [(value)]="selecteddistrict"></app-dd>
+        </div>
+        <div class="form-group font-medium medium-width">
+         <app-dd label="Region" [options]="statusregion"
+         [(value)]="selectedregion"></app-dd>
+        </div>
+      </div>
+
+      <!-- Row: Pincode and Address -->
+      <div class="form-row">
+        <div class="form-group font-medium max-w-72 medium-input">
+        <app-inputfield label="Pincode" placeholder="Enter Pincode"></app-inputfield>
+        </div>
+        <div class="form-group ml-5 font-medium medium-input">
+         <app-inputfield label="Contact Address" placeholder="Enter Contact Address" inputfieldstyle="w-72"></app-inputfield>
+        </div>
+      </div>
+
+      <!-- Section: Ship To -->
+      <h4>Ship To</h4>
+      <div class="form-row">
+        <mat-checkbox>Same As Above</mat-checkbox>
+      </div>
+      <div class="form-row">
+        <div class="form-group font-medium medium-width">
+          <app-dd label="Country" [options]="country1Options"
+          [(value)]="selectedcountry1"></app-dd>
+        </div>
+        <div class="form-group font-medium medium-width">
+          <app-dd label="State" [options]="state1Options"
+          [(value)]="selectedState1"></app-dd>
+        </div>
+        <div class="form-group font-medium medium-width">
+        <app-dd label="District" [options]="district1Options"
+        [(value)]="selecteddistrict1"></app-dd>
+        </div>
+        <div class="form-group font-medium medium-width">
+         <app-dd label="Region" [options]="region1Options"
+         [(value)]="selectedregion1"></app-dd>
+        </div>
+      </div>
+
+      <!-- Row: Pincode and Address -->
+      <div class="form-row">
+        <div class="form-group font-medium max-w-72 medium-input">
+        <app-inputfield label="Pincode" placeholder="Enter Pincode"></app-inputfield>
+        </div>
+        <div class="form-group ml-5 font-medium medium-input">
+         <app-inputfield label="Contact Address" placeholder="Enter Contact Address" inputfieldstyle="w-72"></app-inputfield>
+        </div>
+      </div>
+      <!-- Button Row -->
+      <div class="button-row">
+        <button mat-button matStepperPrevious>Previous</button>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </div>
+    </div>
+  </mat-step>
+
+   <!-- Step 3: Contact Details -->
+   <mat-step label="Step 3: Contact Details">
+    <div class="form-container border-2 border-gray-500 p-4 rounded-lg">
+    <div class="form-container space-y-7">
+      <!-- <h3>Contact Details</h3> -->
+  
+      <!-- Row 1: Contact Name, Email, Alternate Email -->
+      <div class="form-row">
+        <div class="form-group font-medium medium-width medium-input">
+          <app-inputfield label="Contact Name" placeholder="Enter Contact Name"></app-inputfield>
+        </div>
+  
+        <div class="form-group font-medium medium-width medium-input">
+         <app-inputfield label="Email" placeholder="Enter email"></app-inputfield>
+        </div>
+  
+        <div class="form-group font-medium medium-width medium-input">
+         <app-inputfield label="Alternate Email" placeholder="Enter Alternate email"></app-inputfield>
+        </div>
+        
+        <div class="form-group font-medium medium-width medium-input">
+          <app-inputfield label="Mobile Number" placeholder="Enter Mobile Number"></app-inputfield>
+        </div>
+      </div>
+  
+      <!-- Row 2: Alternate Mobile, Gender, Password, Confirm Password -->
+      <div class="form-row">
+        <div class="form-group font-medium medium-width medium-input">
+         <app-inputfield label="Alternate Mobile Number" placeholder="Enter Alternate Mobile Number"></app-inputfield>
+        </div>
+  
+        <div class="form-group font-medium medium-width">
+          <app-dd label="Gender" [options]="Genderoptions"
+          [(value)]="selectedgender"></app-dd>
+        </div>
+  
+        <div class="form-group font-medium medium-width medium-input">
+      
+        <app-inputfield label="Password" placeholder="Enter password"></app-inputfield>
+        </div>
+  
+        <div class="form-group font-medium medium-width medium-input">
+          <app-inputfield label="Confirm password" placeholder="Enter Confirm password"></app-inputfield>
+        </div>
+        <div class="form-row">
+          <mat-checkbox>I agree to these Terms and Conditions</mat-checkbox>
+        </div>
+      </div>
+  
+      <!-- Button Row -->
+      <div class="button-row">
+        <button mat-button matStepperPrevious>Previous</button>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </div>
+    </div>
+  </mat-step>
+  
+
+  <!-- Step 4: Review -->
+  <mat-step label="Step 4: Review">
+    <div class="form-container border-2 border-gray-300 p-4 rounded-lg">
+    <div class="form-container">
+      <h3>Review your Information</h3>
+      <!-- Display form summary here -->
+      <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+    </div>
+    </div>
+  </mat-step>
+
+</mat-horizontal-stepper>

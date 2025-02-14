@@ -1,0 +1,16 @@
+::ng-deep .custom-table {
+    border-collapse: collapse; /* Ensures borders are not doubled */
+    width: 100%;
+  }
+  
+  ::ng-deep .custom-table th, 
+  ::ng-deep .custom-table td {
+    border: 2px solid #3d3d3d; /* Dark gray or black border color */
+    padding: 8px;
+    text-align: left;
+  }
+  
+  ::ng-deep .custom-table th {
+    background-color: #e0e0e0; /* Optional lighter header background for contrast */
+  }
+  

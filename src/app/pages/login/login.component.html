@@ -1,0 +1,48 @@
+<div class="flex justify-center p-2 items-center min-h-screen bg-blue-950">
+  <mat-card
+    class="bg-gradient-to-b from-[#42435e] via-[#2D3748] to-[#4f5b6f] min-w-96 min-h-80 py-6 px-16 shadow-lg rounded-lg bg-white"
+  >
+    <div
+      class="mt-5 w-48 h-48 mx-auto rounded-full overflow-hidden flex items-center justify-center"
+    >
+      <img [src]="'/logo1.png'" class="object-cover" [alt]="'sbdd'" />
+    </div>
+
+    <!-- Card Header -->
+    <mat-card-header class="mb-1 justify-center">
+      <!-- <mat-card-title class="text-xl font-semibold text-accent-800">
+        Login
+      </mat-card-title> -->
+    </mat-card-header>
+
+    <!-- Card Content -->
+    <mat-card-content>
+      <!-- Username Input -->
+      <div>
+        <app-inputfield
+          [label]="'Username'"
+          [placeholder]="'Enter your username'"
+        ></app-inputfield>
+      </div>
+      <!-- Password Input -->
+      <div>
+        <app-inputfield
+          [label]="'Password'"
+          [type]="'password'"
+          [placeholder]="'Enter your password'"
+          [customclasses]="'mt-2'"
+        ></app-inputfield>
+      </div>
+    </mat-card-content>
+
+    <!-- Card Actions -->
+    <mat-card-actions class="mt-2 justify-end flex">
+      <app-button [variant]="'primary'" class="text-black" (click)="onLogin()"
+        >Submit</app-button
+      >
+    </mat-card-actions>
+    <div class="flex justify-end">
+      <a class="mr-3" href="">Forget Password?</a>
+    </div>
+  </mat-card>
+</div>

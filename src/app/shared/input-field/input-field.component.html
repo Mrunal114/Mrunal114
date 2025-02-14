@@ -1,0 +1,5 @@
+<mat-form-field [class]="customclasses">
+  <mat-label class="text-black">{{ label }}</mat-label>
+  <input matInput [type]="type" [placeholder]="placeholder" class="" />
+  <mat-error *ngIf="error">{{ error }}</mat-error>
+</mat-form-field>

@@ -1,0 +1,9 @@
+<mat-form-field id="div-1">
+  <mat-label>{{ label }}</mat-label>
+  <mat-select id="select-1" [(ngModel)]="value" canSelectNullableOptions>
+    @for (option of options; track option) {
+      <mat-option [value]="option.value">{{option.label}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+  

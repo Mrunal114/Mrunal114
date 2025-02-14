@@ -1,0 +1,58 @@
+<mat-stepper linear #stepper>
+  <mat-step
+    *ngFor="let step of stepsConfig; let i = index"
+    [stepControl]="stepsFormGroups[i]"
+  >
+    <ng-template matStepLabel>{{ step.label }}</ng-template>
+
+    <!-- Form Content -->
+    <form *ngIf="step.fields.length > 0" [formGroup]="stepsFormGroups[i]">
+      <div *ngFor="let field of step.fields">
+        <!-- Input Field -->
+        <mat-form-field *ngIf="!field.isDropdown" appearance="outline">
+          <mat-label>{{ field.placeholder }}</mat-label>
+          <input
+            matInput
+            [placeholder]="field.placeholder"
+            [formControlName]="field.name"
+          />
+          <mat-error *ngIf="stepsFormGroups[i].get(field.name)?.hasError('required')">
+            {{ field.placeholder }} is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Dropdown Field -->
+        <mat-form-field *ngIf="field.isDropdown" appearance="outline">
+          <mat-label>{{ field.placeholder }}</mat-label>
+          <mat-select [formControlName]="field.name">
+            <mat-option *ngFor="let option of field.options" [value]="option.value">
+              {{ option.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="stepsFormGroups[i].get(field.name)?.hasError('required')">
+            {{ field.placeholder }} is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+
+    <!-- Completion Message -->
+    <div *ngIf="step.fields.length === 0 && isLastStep(i)">
+      <p>Thank you! You have completed all the steps.</p>
+    </div>
+
+    <!-- Step Navigation -->
+    <div>
+      <button mat-button matStepperPrevious *ngIf="!isFirstStep(i)">Back</button>
+      <button
+        mat-button
+        matStepperNext
+        *ngIf="!isLastStep(i)"
+        [disabled]="!isStepComplete(i)"
+      >
+        Next
+      </button>
+      <button mat-button (click)="stepper.reset()" *ngIf="isLastStep(i)">{{ resetLabel }}</button>
+    </div>
+  </mat-step>
+</mat-stepper>
